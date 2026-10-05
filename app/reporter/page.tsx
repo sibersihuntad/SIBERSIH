@@ -31,6 +31,7 @@ export default async function PelaporDashboard() {
         prisma.report.findMany({
             where: {
                 pelaporId: userId,
+                status: { not: "SELESAI" },
                 latitude: { not: null },
                 longitude: { not: null }
             },
